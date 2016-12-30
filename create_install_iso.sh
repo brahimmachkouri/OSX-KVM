@@ -522,6 +522,7 @@ stage_end_ok
 stage_start "Extracting kernel from Essentials.pkg (very slow step)"
 cd "$OSX_inst_img_rw_mnt"
 "$script_dir/pbzx" "$OSX_inst_inst_dmg_mnt/Packages/Essentials.pkg" | cpio -idmu ./System/Library/Kernels  || exit_with_error "Extraction of kernel failed"
+cp ./System/Library/Kernels/kernel ./mach_kernel
 cd "$work_dir"
 stage_end_ok
 
